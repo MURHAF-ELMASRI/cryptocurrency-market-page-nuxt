@@ -5,8 +5,10 @@
     "moduleResolution": "Node",
     "lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "allowJs": true,
     "sourceMap": true,
+    "noImplicitThis": true,
     "strict": true,
     "noEmit": true,
     "experimentalDecorators": true,
@@ -15,7 +17,7 @@
       "~/*": ["./*"],
       "@/*": ["./*"]
     },
-    "types": ["@nuxt/types", "@types/node","@pinia/nuxt","mande/nuxt","@nuxtjs/i18n"]
+    "types": ["@nuxt/types", "@types/node","@pinia/nuxt", "mande/nuxt","@nuxtjs/i18n",]
   },
   "exclude": ["node_modules", ".nuxt", "dist"]
 }
