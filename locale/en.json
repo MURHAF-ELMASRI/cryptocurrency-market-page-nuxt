@@ -1,0 +1,17 @@
+{
+  "message": {},
+  "crypto": {
+    "name": "Name",
+    "test": "test",
+    "last7Days": "Last 7 Days",
+    "circulatingSupply": "Circulating Supply",
+    "volume": "Volume(24h)",
+    "marketCap": "Market cap",
+    "price": "Price",
+    "1h": "1h %",
+    "24h": "24h %",
+    "7d": "7d %",
+    "title": "Cryptocurrency Sectors by 24h Price Change",
+    "titleDesc": "We have created an index for each cryptocurrency category. Categories are ranked by 24h price change. Click on a crypto category name to see the constituent parts of the index and their recent price performance."
+  }
+}

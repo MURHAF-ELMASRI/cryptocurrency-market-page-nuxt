@@ -1,7 +1,10 @@
+
+import { I18N } from './config/config.ts'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'few',
+    title: 'Learning',
     htmlAttrs: {
       lang: 'en',
     },
@@ -15,7 +18,9 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: [
+    "~/node_modules/devextreme/dist/css/dx.light.css"
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -27,10 +32,16 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
+    // https://go.nuxtjs.dev/stylelint
+    '@nuxtjs/stylelint-module',
+    '@nuxtjs/composition-api/module',
+    '@pinia/nuxt',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: [
+    ['@nuxtjs/i18n',I18N]
+  ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
