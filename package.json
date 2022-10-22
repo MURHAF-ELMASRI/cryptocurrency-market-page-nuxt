@@ -17,7 +17,9 @@
     "nuxt": "^2.15.8",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
-    "vue-template-compiler": "^2.7.10"
+    "vue-template-compiler": "^2.7.10",
+    "pinia": "^2.0.23",
+    "@nuxtjs/composition-api": "^0.33.1"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
