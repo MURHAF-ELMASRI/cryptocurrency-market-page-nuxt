@@ -1,11 +1,32 @@
 <template>
-  <Tutorial />
+  <div class="main">
+    <div class="intro-container">
+      <div class="intro-text-container">
+        <h1>
+          <span>{{ $t("crypto.title") }}</span>
+        </h1>
+        <div>
+          <p>
+            {{ $t("crypto.titleDesc") }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <DataGridTable />
+  </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-  name: 'IndexPage',
-})
+import Table from "~/components/table/Table.vue";
+export default { components: { DataGridTable: Table } };
 </script>
+
+<style>
+.main {
+  padding: 0 16px;
+  background-image: linear-gradient(
+    rgb(248, 250, 253) 0%,
+    rgba(248, 250, 253, 0%) 413px
+  );
+}
+</style>
