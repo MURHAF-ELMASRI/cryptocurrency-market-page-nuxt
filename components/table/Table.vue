@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="table-container">
     <DxDataGrid
       :data-source="cryptos"
       key-expr="market_cap_rank"
@@ -182,19 +182,33 @@ import {
   DxColumn,
   DxDataGrid,
   DxFilterRow,
+  DxItem,
   DxPaging,
   DxScrolling,
+  DxToolbar,
 } from "devextreme-vue/data-grid";
+import SelectBox from "devextreme-vue/select-box";
 import { computed, onMounted, ref } from "vue";
 
 import { useCryptoStore } from "@/store/cryptoStore";
+import ChartCell from "~/components/table/ChartCell.vue";
+import CirculatingSupplyCell from "~/components/table/CirculatingSupplyCell.vue";
+import NameCell from "~/components/table/NameCell.vue";
+import PriceChangePercent from "~/components/table/PriceChangePercent.vue";
 
 export default {
   components: {
     DxDataGrid,
     DxColumn,
     DxScrolling,
+    ChartCell,
+    NameCell,
+    PriceChangePercent,
+    CirculatingSupplyCell,
     DxFilterRow,
+    DxToolbar,
+    DxItem,
+    SelectBox,
     DxPaging,
   },
   setup() {
