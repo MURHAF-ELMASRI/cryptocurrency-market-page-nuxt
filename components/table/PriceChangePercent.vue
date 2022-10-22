@@ -1,5 +1,5 @@
 <template>
-  <div v-if="price !== undefined" class="container">
+  <div v-if="price !== undefined || price !== null" class="container">
     <p v-if="price > 0" class="increase">
       &#9652;
     </p>

@@ -10,7 +10,6 @@
       <!-- start data-grid settings -->
       <DxScrolling row-rendering-mode="virtual" />
       <DxFilterRow :visible="true" />
-      <DxPaging :page-size="pageSize" />
       <!-- end data-grid settings -->
 
       <DxColumn
@@ -105,21 +104,6 @@
         css-class="table-header"
         :allow-filtering="false"
       />
-      <!-- start data-grid tool bar  -->
-      <DxToolbar>
-        <DxItem location="before" template="DeFi" />
-
-        <DxItem location="after" template="pagingControl" />
-      </DxToolbar>
-      <template #DeFi>
-        <nuxt-link to="Defi" class="link">
-          Defi
-        </nuxt-link>
-      </template>
-      <template #pagingControl>
-        <SelectBox :items="sizeOption" :value="pageSize" />
-      </template>
-      <!-- end data-grid tool bar  -->
 
       <!-- start columns templates -->
       <template #chart-cell-template="{ data }">
@@ -179,16 +163,12 @@
 
 <script lang="ts">
 import {
-  DxColumn,
-  DxDataGrid,
-  DxFilterRow,
-  DxItem,
-  DxPaging,
-  DxScrolling,
-  DxToolbar,
+DxColumn,
+DxDataGrid,
+DxFilterRow,
+DxScrolling,
 } from "devextreme-vue/data-grid";
-import SelectBox from "devextreme-vue/select-box";
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted } from "vue";
 
 import { useCryptoStore } from "@/store/cryptoStore";
 import ChartCell from "~/components/table/ChartCell.vue";
@@ -206,14 +186,8 @@ export default {
     PriceChangePercent,
     CirculatingSupplyCell,
     DxFilterRow,
-    DxToolbar,
-    DxItem,
-    SelectBox,
-    DxPaging,
   },
   setup() {
-    const pageSize = ref(50);
-    const sizeOption = ref([20, 50, 100]);
     const cryptoStore = useCryptoStore();
     onMounted(() => cryptoStore.fetchAllCrypto());
     const cryptos = computed(() => cryptoStore.allCryptoUI);
@@ -221,8 +195,6 @@ export default {
     return {
       cryptoStore,
       cryptos,
-      pageSize,
-      sizeOption,
     };
   },
   computed: {
