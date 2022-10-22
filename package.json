@@ -18,6 +18,8 @@
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10",
+    "devextreme": "22.1.5",
+    "devextreme-vue": "22.1.5",
     "pinia": "^2.0.23",
     "@nuxtjs/composition-api": "^0.33.1",
     "@pinia/nuxt": "0.2.1"
