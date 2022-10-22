@@ -1,5 +1,5 @@
 <template>
-  <div class="table-container">
+  <div>
     <DxDataGrid
       :data-source="cryptos"
       key-expr="market_cap_rank"
