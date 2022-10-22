@@ -11,12 +11,12 @@
       <DxFilterRow :visible="true" />
       <DxPaging :page-size="pageSize" />
       <!-- end data-grid settings -->
-
       <DxColumn
         data-field="market_cap_rank"
         caption="#"
         :width="40"
         :fixed="true"
+        :fixed-position="isRtl ? 'right' : 'left'"
         :allow-filtering="false"
       ></DxColumn>
 
@@ -26,6 +26,7 @@
         :fixed="true"
         :width="207"
         css-class="table-header"
+        :fixed-position="isRtl ? 'right' : 'left'"
       ></DxColumn>
 
       <DxColumn
@@ -40,6 +41,7 @@
         data-field="price_change_percentage_1h_in_currency"
         :caption="$t('crypto.1h')"
         :min-width="72"
+        :alignment="alignment"
         css-class="table-header"
         :allow-filtering="false"
       ></DxColumn>
@@ -48,6 +50,7 @@
         data-field="price_change_percentage_24h_in_currency"
         :caption="$t('crypto.24h')"
         :min-width="72"
+        :alignment="alignment"
         css-class="table-header"
         :allow-filtering="false"
       ></DxColumn>
@@ -56,6 +59,7 @@
         data-field="price_change_percentage_7d_in_currency"
         :caption="$t('crypto.7d')"
         :min-width="72"
+        :alignment="alignment"
         css-class="table-header"
         :allow-filtering="false"
       ></DxColumn>
@@ -63,6 +67,7 @@
       <DxColumn
         :min-width="144"
         :caption="$t('crypto.marketCap')"
+        :alignment="alignment"
         css-class="table-header"
         :allow-filtering="false"
       />
@@ -70,6 +75,7 @@
       <DxColumn
         :min-width="144"
         :caption="$t('crypto.volume')"
+        :alignment="alignment"
         css-class="table-header"
         :allow-filtering="false"
       />
@@ -77,6 +83,14 @@
       <DxColumn
         :min-width="208"
         :caption="$t('crypto.circulatingSupply')"
+        :alignment="alignment"
+        css-class="table-header"
+        :allow-filtering="false"
+      />
+
+      <DxColumn
+        :caption="$t('crypto.last7Days')"
+        :width="160"
         css-class="table-header"
         :allow-filtering="false"
       />
@@ -119,6 +133,14 @@ export default {
       pageSize,
       sizeOption,
     };
+  },
+  computed: {
+    isRtl(): boolean {
+      return this.$i18n.localeProperties.dir === "rtl";
+    },
+    alignment(): "left" | "right" {
+      return this.$i18n.localeProperties.dir === "rtl" ? "left" : "right";
+    },
   },
 };
 </script>
