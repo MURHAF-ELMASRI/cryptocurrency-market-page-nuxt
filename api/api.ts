@@ -8,6 +8,8 @@ const host = mande(BASE_URL, {}, fetchPolyfill)
   
 
 export const api = {
-  getAllCryptos: nuxtWrap(host, (api) => api.get<CryptoCurrency[]>('/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d'))
+  getAllCryptos: nuxtWrap(host, (api) => api.get<CryptoCurrency[]>('/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d')),
+  getNftCryptos: nuxtWrap(host, (api) => api.get<CryptoCurrency[]>('/coins/markets?vs_currency=usd&order=market_cap_desc&category=non-fungible-tokens-nft&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d')),
+  getSolanaCryptos: nuxtWrap(host, (api) => api.get<CryptoCurrency[]>('/coins/markets?vs_currency=usd&order=market_cap_desc&category=solana-ecosystem&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d')),
 }
 
