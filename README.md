@@ -4,7 +4,7 @@ Clone https://coinmarketcap.com/ website using data from https://www.coingecko.c
 
 ## Demo
 
-[Live Demo](https://magnificent-gelato-08ce64.netlify.app/)
+[Live Demo](https://sparkling-begonia-599483.netlify.app)
 
 ## Tech Stack
 
