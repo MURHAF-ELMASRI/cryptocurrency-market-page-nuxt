@@ -3,11 +3,11 @@
     <div class="intro-container">
       <div class="intro-text-container">
         <h1>
-          <span>{{ $t("crypto.title") }}</span>
+          <span>{{ $t("nft.title") }}</span>
         </h1>
         <div>
           <p>
-            {{ $t("crypto.titleDesc") }}
+            {{ $t("nft.titleDesc") }}
           </p>
         </div>
       </div>
@@ -24,8 +24,8 @@ export default {
   components: { DataGridTable: Table },
   setup() {
     const cryptoStore = useCryptoStore();
-    onMounted(() => cryptoStore.fetchAllCrypto());
-    const data = computed(() => cryptoStore.allCrypto);
+    onMounted(() => cryptoStore.fetchNftCrypto());
+    const data = computed(() => cryptoStore.nftCryptoGetter);
 
     return { data };
   },

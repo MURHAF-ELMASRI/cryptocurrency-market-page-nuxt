@@ -23,7 +23,7 @@
 
       <DxColumn
         data-field="name"
-        :caption="$t('crypto.name')"
+        :caption="$t('table.name')"
         :fixed="true"
         :width="207"
         cell-template="name-cell"
@@ -33,7 +33,7 @@
 
       <DxColumn
         data-field="current_price"
-        :caption="$t('crypto.price')"
+        :caption="$t('table.price')"
         cell-template="price-cell"
         :min-width="112"
         alignment="alignment"
@@ -42,7 +42,7 @@
 
       <DxColumn
         data-field="price_change_percentage_1h_in_currency"
-        :caption="$t('crypto.1h')"
+        :caption="$t('table.1h')"
         cell-template="price-change"
         :min-width="72"
         :alignment="alignment"
@@ -52,7 +52,7 @@
 
       <DxColumn
         data-field="price_change_percentage_24h_in_currency"
-        :caption="$t('crypto.24h')"
+        :caption="$t('table.24h')"
         cell-template="price-change"
         :min-width="72"
         :alignment="alignment"
@@ -62,7 +62,7 @@
 
       <DxColumn
         data-field="price_change_percentage_7d_in_currency"
-        :caption="$t('crypto.7d')"
+        :caption="$t('table.7d')"
         cell-template="price-change"
         :min-width="72"
         :alignment="alignment"
@@ -73,7 +73,7 @@
       <DxColumn
         :min-width="144"
         data-field="market_cap"
-        :caption="$t('crypto.marketCap')"
+        :caption="$t('table.marketCap')"
         cell-template="price-cell"
         :alignment="alignment"
         css-class="table-header"
@@ -83,7 +83,7 @@
       <DxColumn
         :min-width="144"
         data-field="total_volume"
-        :caption="$t('crypto.volume')"
+        :caption="$t('table.volume')"
         cell-template="price-cell"
         :alignment="alignment"
         css-class="table-header"
@@ -92,7 +92,7 @@
 
       <DxColumn
         :min-width="208"
-        :caption="$t('crypto.circulatingSupply')"
+        :caption="$t('table.circulatingSupply')"
         cell-template="circulating-supply-cell-template"
         :alignment="alignment"
         css-class="table-header"
@@ -100,7 +100,7 @@
       />
 
       <DxColumn
-        :caption="$t('crypto.last7Days')"
+        :caption="$t('table.last7Days')"
         cell-template="chart-cell-template"
         :width="160"
         css-class="table-header"
@@ -108,13 +108,21 @@
       />
       <!-- start toolbar -->
       <DxToolbar>
-        <DxItem location="before" template="test" name="Defi" />
+        <DxItem location="before" template="all"/>
+        <DxItem location="before" template="test" name="DeFi" />
+        <DxItem location="before" template="test" name="NFT" />
+        <DxItem location="before" template="test" name="Metaverse" />
+        <DxItem location="before" template="test" name="Solana" />
       </DxToolbar>
 
       <template #test="{data}">
         <nuxt-link :to="`/category/${data.name}`" class="link">{{
           data.name
         }}</nuxt-link>
+      </template>
+
+      <template #all>
+        <nuxt-link :to="`/`" class="link">{{$t("table.all")}}</nuxt-link>
       </template>
       <!-- end toolbar -->
 
@@ -156,12 +164,12 @@ import Vue, { computed, onMounted } from "vue";
 
 import { useContext } from "@nuxtjs/composition-api";
 import {
-  DxColumn,
-  DxDataGrid,
-  DxFilterRow,
-  DxItem,
-  DxScrolling,
-  DxToolbar,
+DxColumn,
+DxDataGrid,
+DxFilterRow,
+DxItem,
+DxScrolling,
+DxToolbar
 } from "devextreme-vue/data-grid";
 
 import { useCryptoStore } from "@/store/cryptoStore";
@@ -183,19 +191,23 @@ export default Vue.extend({
     DxItem,
     DxToolbar,
   },
+  props: {
+    cryptos: {
+      type: Array as () => Crypto[],
+      required: true,
+    },
+  },
   setup() {
     const { i18n } = useContext();
 
     const cryptoStore = useCryptoStore();
     onMounted(() => cryptoStore.fetchAllCrypto());
-    const cryptos = computed(() => cryptoStore.allCryptoUI);
     const isRtl = computed(() => i18n.localeProperties.dir === "rtl");
     const alignment = computed(() =>
       i18n.localeProperties.dir === "rtl" ? "left" : "right"
     );
 
     return {
-      cryptos,
       cryptoStore,
       isRtl,
       alignment,
@@ -204,7 +216,7 @@ export default Vue.extend({
 });
 </script>
 
-<style>
+<style lang="scss">
 .main {
   padding: 0 16px;
   background-image: linear-gradient(
@@ -252,5 +264,11 @@ export default Vue.extend({
   font-weight: 600;
   color: rgb(88, 102, 126);
   text-decoration: none;
+  margin-right: 4px;
+  padding: 14px;
+  border-radius: 8px;
+  &:hover {
+    background-color: rgb(248, 250, 253);
+  }
 }
 </style>
