@@ -13,7 +13,7 @@ export const useCryptoStore = defineStore("crypto", {
         allCryptoUI(state) {
             return  state.allCrypto.map(x=>({...x,current_price:numberToCommaNumber(x.current_price),market_cap:numberToCommaNumber(x.market_cap),total_volume:numberToCommaNumber(x.total_volume)}))
         },
-        solanaCrypto(state) {
+        solanaCryptoGetter(state) {
             return  state.solanaCrypto.map(x=>({...x,current_price:numberToCommaNumber(x.current_price),market_cap:numberToCommaNumber(x.market_cap),total_volume:numberToCommaNumber(x.total_volume)}))
       } ,  
       nftCryptoGetter(state) {

@@ -24,8 +24,8 @@ export default {
   components: { DataGridTable: Table },
   setup() {
     const cryptoStore = useCryptoStore();
-    onMounted(() => cryptoStore.fetchAllCrypto());
-    const data = computed(() => cryptoStore.allCrypto);
+    onMounted(() => cryptoStore.fetchSolanaCrypto());
+    const data = computed(() => cryptoStore.solanaCryptoGetter);
 
     return { data };
   },
