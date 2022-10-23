@@ -1,6 +1,10 @@
 {
   "message": {},
   "crypto": {
+    "title": "Cryptocurrency Sectors by 24h Price Change",
+    "titleDesc": "We have created an index for each cryptocurrency category. Categories are ranked by 24h price change. Click on a crypto category name to see the constituent parts of the index and their recent price performance."
+  },
+  "table": {
     "name": "Name",
     "test": "test",
     "last7Days": "Last 7 Days",
@@ -11,7 +15,10 @@
     "1h": "1h %",
     "24h": "24h %",
     "7d": "7d %",
-    "title": "Cryptocurrency Sectors by 24h Price Change",
-    "titleDesc": "We have created an index for each cryptocurrency category. Categories are ranked by 24h price change. Click on a crypto category name to see the constituent parts of the index and their recent price performance."
+    "all":"All"
+  },
+  "nft": {
+    "title": "Top Collectibles & NFTs Tokens by Market Capitalization",
+    "titleDesc": "Listed below are the top crypto coins and tokens used for Collectibles & NFTs. They are listed in size by market capitalization. To reorder the list, simply click on one of the options - such as 24h or 7d - to see the sector from a different perspective."
   }
 }

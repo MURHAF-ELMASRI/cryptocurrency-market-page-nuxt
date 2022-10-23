@@ -1,6 +1,5 @@
 {
-  "message": {},
-  "crypto": {
+  "table": {
     "name": "İsim",
     "test": "test",
     "last7Days": "Son 7 gün",
@@ -11,6 +10,15 @@
     "1h": "1saat %",
     "24h": "24saat %",
     "7d": "7gün %",
+    "all": "Bütün para"
+  },
+  "nft": {
+    "title": "Piyasa Değerine Göre En İyi Koleksiyon ve NFT Jetonları",
+    "titleDesc": "Koleksiyon ve NFT'ler için kullanılan en iyi kripto paralar ve jetonlar aşağıda listelenmiştir. Piyasa değerine göre büyüklüklerine göre listelenirler. Listeyi yeniden sıralamak için, sektörü farklı bir perspektiften görmek için seçeneklerden birine (24h veya 7d gibi) tıklamanız yeterlidir."
+  },
+  "message": {},
+
+  "crypto": {
     "title": "24 Saatlik Fiyat Değişimine Göre Kripto Para Sektörleri",
     "titleDesc": "Her kripto para kategorisi için bir dizin oluşturduk. Kategoriler 24 saatlik fiyat değişimine göre sıralanır. Endeksi oluşturan parçaları ve son fiyat performanslarını görmek için bir kripto kategorisi adına tıklayın."
   }
