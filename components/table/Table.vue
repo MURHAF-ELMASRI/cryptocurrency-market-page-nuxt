@@ -43,7 +43,7 @@
       <DxColumn
         data-field="price_change_percentage_1h_in_currency"
         :caption="$t('crypto.1h')"
-        cell-template="hour-price-change"
+        cell-template="price-change"
         :min-width="72"
         :alignment="alignment"
         css-class="table-header"
@@ -53,7 +53,7 @@
       <DxColumn
         data-field="price_change_percentage_24h_in_currency"
         :caption="$t('crypto.24h')"
-        cell-template="day-price-change"
+        cell-template="price-change"
         :min-width="72"
         :alignment="alignment"
         css-class="table-header"
@@ -63,7 +63,7 @@
       <DxColumn
         data-field="price_change_percentage_7d_in_currency"
         :caption="$t('crypto.7d')"
-        cell-template="7days-price-change"
+        cell-template="price-change"
         :min-width="72"
         :alignment="alignment"
         css-class="table-header"
@@ -72,8 +72,9 @@
 
       <DxColumn
         :min-width="144"
+        data-field="market_cap"
         :caption="$t('crypto.marketCap')"
-        cell-template="market-cap-cell-template"
+        cell-template="price-cell"
         :alignment="alignment"
         css-class="table-header"
         :allow-filtering="false"
@@ -81,8 +82,9 @@
 
       <DxColumn
         :min-width="144"
+        data-field="total_volume"
         :caption="$t('crypto.volume')"
-        cell-template="volume-cell-template"
+        cell-template="price-cell"
         :alignment="alignment"
         css-class="table-header"
         :allow-filtering="false"
@@ -131,35 +133,12 @@
         />
       </template>
       <template #price-cell="{ data }">
-        <p class="price">{{ "$" + data.data.current_price }}</p>
+        <p class="price">{{ "$" + data.value }}</p>
       </template>
 
-      <template #hour-price-change="{ data }">
-        <PriceChangePercent
-          :price="data.data.price_change_percentage_1h_in_currency"
-        />
+      <template #price-change="{ data }">
+        <PriceChangePercent :price="data.value" />
       </template>
-
-      <template #day-price-change="{ data }">
-        <PriceChangePercent
-          :price="data.data.price_change_percentage_24h_in_currency"
-        />
-      </template>
-
-      <template #7days-price-change="{ data }">
-        <PriceChangePercent
-          :price="data.data.price_change_percentage_7d_in_currency"
-        />
-      </template>
-
-      <template #market-cap-cell-template="{ data }">
-        <p class="price">{{ "$" + data.data.market_cap }}</p>
-      </template>
-
-      <template #volume-cell-template="{ data }">
-        <p class="price">{{ "$" + data.data.total_volume }}</p>
-      </template>
-
       <template #circulating-supply-cell-template="{ data }">
         <CirculatingSupplyCell
           :amount="data.data.circulating_supply"
