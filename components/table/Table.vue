@@ -106,11 +106,14 @@
       />
       <!-- start toolbar -->
       <DxToolbar>
-        <DxItem location="before">
-          <nuxt-link to="category/defi" class="link">Defi</nuxt-link>
-        </DxItem>
+        <DxItem location="before" template="test" name="Defi" />
       </DxToolbar>
 
+      <template #test="{data}">
+        <nuxt-link :to="`/category/${data.name}`" class="link">{{
+          data.name
+        }}</nuxt-link>
+      </template>
       <!-- end toolbar -->
 
       <!-- start columns templates -->
