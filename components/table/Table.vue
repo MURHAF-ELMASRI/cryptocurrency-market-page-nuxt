@@ -104,6 +104,14 @@
         css-class="table-header"
         :allow-filtering="false"
       />
+      <!-- start toolbar -->
+      <DxToolbar>
+        <DxItem location="before">
+          <nuxt-link to="category/defi" class="link">Defi</nuxt-link>
+        </DxItem>
+      </DxToolbar>
+
+      <!-- end toolbar -->
 
       <!-- start columns templates -->
       <template #chart-cell-template="{ data }">
@@ -162,13 +170,17 @@
 </template>
 
 <script lang="ts">
+import Vue, { computed, onMounted } from "vue";
+
+import { useContext } from "@nuxtjs/composition-api";
 import {
-DxColumn,
-DxDataGrid,
-DxFilterRow,
-DxScrolling,
+  DxColumn,
+  DxDataGrid,
+  DxFilterRow,
+  DxItem,
+  DxScrolling,
+  DxToolbar,
 } from "devextreme-vue/data-grid";
-import { computed, onMounted } from "vue";
 
 import { useCryptoStore } from "@/store/cryptoStore";
 import ChartCell from "~/components/table/ChartCell.vue";
@@ -176,7 +188,7 @@ import CirculatingSupplyCell from "~/components/table/CirculatingSupplyCell.vue"
 import NameCell from "~/components/table/NameCell.vue";
 import PriceChangePercent from "~/components/table/PriceChangePercent.vue";
 
-export default {
+export default Vue.extend({
   components: {
     DxDataGrid,
     DxColumn,
@@ -186,26 +198,28 @@ export default {
     PriceChangePercent,
     CirculatingSupplyCell,
     DxFilterRow,
+    DxItem,
+    DxToolbar,
   },
   setup() {
+    const { i18n } = useContext();
+
     const cryptoStore = useCryptoStore();
     onMounted(() => cryptoStore.fetchAllCrypto());
     const cryptos = computed(() => cryptoStore.allCryptoUI);
+    const isRtl = computed(() => i18n.localeProperties.dir === "rtl");
+    const alignment = computed(() =>
+      i18n.localeProperties.dir === "rtl" ? "left" : "right"
+    );
 
     return {
-      cryptoStore,
       cryptos,
+      cryptoStore,
+      isRtl,
+      alignment,
     };
   },
-  computed: {
-    isRtl(): boolean {
-      return this.$i18n.localeProperties.dir === "rtl";
-    },
-    alignment(): "left" | "right" {
-      return this.$i18n.localeProperties.dir === "rtl" ? "left" : "right";
-    },
-  },
-};
+});
 </script>
 
 <style>
