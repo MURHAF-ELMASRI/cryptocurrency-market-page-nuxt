@@ -17,7 +17,7 @@
     "@nuxtjs/i18n": "^7.3.0",
     "@pinia/nuxt": "0.2.1",
     "core-js": "^3.25.3",
-    "devextreme": "22.1.5",
+    "devextreme": "22.1.6",
     "devextreme-vue": "22.1.5",
     "mande": "^2.0.3",
     "nuxt": "^2.15.8",
